@@ -23,8 +23,7 @@ export default function HomeHero({ onScrollToDigitalCity }: HeroProps) {
           <Image
             src={lightImage.src}
             alt="Placeholder"
-            layout="fill" // Quan trọng: fill để ảnh lấp đầy phần tử cha
-            objectFit="cover" // Prop riêng của Next.js Image
+            fill // Quan trọng: fill để ảnh lấp đầy phần tử cha
             // Các class Tailwind cho hiệu ứng và hiển thị
             className="transition-opacity duration-300 ease-in-out opacity-100"
           // Nếu bạn muốn blur ban đầu, hãy sử dụng placeholder="blur" và blurDataURL
@@ -36,12 +35,9 @@ export default function HomeHero({ onScrollToDigitalCity }: HeroProps) {
         <Image
           src={heavyImage.src}
           alt="Ảnh nặng"
-          layout="fill"
-          objectFit="cover"
+          fill
           // Sử dụng class Tailwind động cho opacity
-          className={`
-          transition-opacity duration-300 ease-in-out
-          ${isLoaded ? 'opacity-100' : 'opacity-0'}
+          className={`transition-opacity duration-300 ease-in-out ${isLoaded ? 'opacity-100' : 'opacity-0'}
         `}
         />
       </div>

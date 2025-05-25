@@ -11,7 +11,7 @@ type Props = {
 };
 export default function Document({children, locale}: Props) {
   return (
-    <html className={inter.className} lang={locale}>
+    <html className={`overflow-x-hidden ${inter.className}`} lang={locale}>
       <body>{children}</body>
     </html>
   );
