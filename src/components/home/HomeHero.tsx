@@ -23,10 +23,27 @@ export default function HomeHero({ onScrollToDigitalCity }: HeroProps) {
           <Image
             src={lightImage.src}
             alt="Placeholder"
-            fill
-            className={`object-fill transition-opacity duration-300 ease-in-out ${isLoaded ? 'opacity-100' : 'opacity-0'} `}
+            layout="fill" // Quan trọng: fill để ảnh lấp đầy phần tử cha
+            objectFit="cover" // Prop riêng của Next.js Image
+            // Các class Tailwind cho hiệu ứng và hiển thị
+            className="transition-opacity duration-300 ease-in-out opacity-100"
+          // Nếu bạn muốn blur ban đầu, hãy sử dụng placeholder="blur" và blurDataURL
+          // placeholder="blur"
+          // blurDataURL={lightImage.src} // Hoặc một base64 string của ảnh mờ
           />
         )}
+        {/* Ảnh nặng hiển thị khi đã tải xong */}
+        <Image
+          src={heavyImage.src}
+          alt="Ảnh nặng"
+          layout="fill"
+          objectFit="cover"
+          // Sử dụng class Tailwind động cho opacity
+          className={`
+          transition-opacity duration-300 ease-in-out
+          ${isLoaded ? 'opacity-100' : 'opacity-0'}
+        `}
+        />
       </div>
       <div onClick={onScrollToDigitalCity} className="font-semibold text-[18px] absolute bottom-20 left-1/2 -translate-x-1/2 flex justify-center flex-col items-center text-white uppercase gap-[15px]">
         <Image
