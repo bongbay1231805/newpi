@@ -59,7 +59,7 @@ export default function HomeHero({ onScrollToDigitalCity }: HeroProps) {
           width={21}
           height={35}
         />
-        <span>cuộn xuống</span>
+        <span>cuộn xuống ok</span>
       </div>
     </>
   )

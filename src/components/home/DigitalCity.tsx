@@ -1,6 +1,7 @@
 'use client';
 import { forwardRef } from 'react';
 const DigitalCity = forwardRef<HTMLDivElement>((props, ref) => {
+  console.log(props);
   return (
     <>
       <div className="mx-auto max-w-[1580px]" ref={ref}>

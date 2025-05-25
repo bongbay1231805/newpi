@@ -1,3 +1,4 @@
+'use client'; 
 // import { Locale} from 'next-intl';
 // import { setRequestLocale } from 'next-intl/server';
 import ClientUseRef from '@/components/client/UseRef';

@@ -242,7 +242,9 @@ export default function ClientUseRef() {
             </g>
           </svg>
         </div>
-        <DigitalCity ref={digitalCityRef} />
+        <div ref={digitalCityRef}>
+          <DigitalCity  />
+        </div>
       </div>
     </>
   )
