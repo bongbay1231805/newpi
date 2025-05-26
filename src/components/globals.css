@@ -46,9 +46,10 @@ b {
   --text-size-20: 20px;
   --animate-fade-in-scale: fade-in-scale 0.3s ease-out;
   --animate-energy-circle: energy-circle 1s ease 0.2s infinite;
-  --animate-energy-rotate-and-move: energy-rotate-and-move 4s linear infinite;
   --animate-energy-rotate: half-circle 8s linear infinite;
   --animate-half-circle: half-circle 4s linear infinite;
+  --animate-reveal-text: reveal-text 1.5s ease-in-out forwards 0.5s;
+  --animate-fade-in-up-medium: fade-in-up-medium 1.5s ease-in-out both 0.5s;
   @keyframes fade-in-scale {
     0% {
       opacity: 0;
@@ -59,39 +60,44 @@ b {
       transform: scale(1);
     }
   }
-  @keyframes revealText {
+  @keyframes reveal-text {
     0% {
       transform: translateX(17%);
-      clipPath: inset(0px 50% 0px 50%);
-      -webkit-clipPath: inset(0px 50% 0px 50%);
+      clip-path: inset(0px 50% 0px 50%);
+      -webkit-clip-path: inset(0px 50% 0px 50%);
     }
     100% {
-      clipPath: inset(0px 0px 0px 0px);
-      -webkit-clipPath: inset(0px 0px 0px 0px);
+      clip-path: inset(0px 0px 0px 0px);
+      -webkit-clip-path: inset(0px 0px 0px 0px);
       transform: translateX(0%);
       opacity: 1;
     }
   }
-  @keyframes energy-circle {
+  @keyframes fade-in-up-medium {
     0% {
-      fill: red
-    }
-    25% {
-      fill: yellow
+      opacity: 0;
+      transform: translateY(200px);
     }
     50% {
-      fill: blue
+      opacity: 0.3;
     }
     100% {
-      fill: green
+      opacity: 1;
+      transform: translateY(0);
     }
   }
-  @keyframes energy-rotate-and-move {
+  @keyframes energy-circle {
     0% {
-      transform: rotate(0deg)
+      opacity: 0.25;
+    }
+    25% {
+      opacity: 0.5;
+    }
+    50% {
+      opacity: 0.75;
     }
     100% {
-      transform: rotate(360deg)
+      opacity: 1;
     }
   }
   @keyframes half-circle {
@@ -106,6 +112,18 @@ b {
   }
 }
 @layer components {
+  .reveal-text {
+    @apply opacity-0 transform translate-x-0;
+  }
+  .reveal-text.show {
+    @apply animate-reveal-text;
+  }
+  .fade-in-up-medium {
+    @apply opacity-0 transform translate-y-[200px] transform-3d relative;
+  }
+  .fade-in-up-medium.show {
+    @apply animate-fade-in-up-medium;
+  }
   .hvr-bounce-to-right {
     @apply inline-block align-middle relative;
     /* Các thuộc tính từ Tailwind */

@@ -3,6 +3,7 @@ import Image from 'next/image'
 import heavyImage from "../../../public/fhome/banner.gif";
 import lightImage from "../../../public/fhome/herocity.jpg";
 import { useEffect, useState } from 'react';
+import { Calculator } from 'lucide-react';
 type HeroProps = {
   onScrollToDigitalCity: () => void;
 };
@@ -15,9 +16,10 @@ export default function HomeHero({ onScrollToDigitalCity }: HeroProps) {
     };
     img.src = heavyImage.src;
   }, []);
+  const videoId = "0EJIjmIt7Bc";
   return (
     <>
-      <div style={{ position: 'relative', width: '100vw', height: '100vh', overflow: 'hidden' }}>
+      <div style={{ position: 'relative', width: '100vw', height: '1080px', maxHeight: '100%' }}>
         {/* Ảnh nhẹ hiển thị ban đầu */}
         {!isLoaded && (
           <Image
@@ -31,15 +33,15 @@ export default function HomeHero({ onScrollToDigitalCity }: HeroProps) {
           // blurDataURL={lightImage.src} // Hoặc một base64 string của ảnh mờ
           />
         )}
-        {/* Ảnh nặng hiển thị khi đã tải xong */}
-        <Image
-          src={heavyImage.src}
-          alt="Ảnh nặng"
-          fill
-          // Sử dụng class Tailwind động cho opacity
-          className={`transition-opacity duration-300 ease-in-out ${isLoaded ? 'opacity-100' : 'opacity-0'}
-        `}
-        />
+        {isLoaded && (
+          <iframe
+            width="100%" height="100%"
+            src={`https://www.youtube.com/embed/${videoId}?autoplay=1&mute=1&controls=0&loop=1&playlist=${videoId}&disablekb=1&rel=0`}
+            allow="autoplay; fullscreen"
+            allowFullScreen
+          ></iframe>
+        )
+        }
       </div>
       <div onClick={onScrollToDigitalCity} className="font-semibold text-[18px] absolute bottom-20 left-1/2 -translate-x-1/2 flex justify-center flex-col items-center text-white uppercase gap-[15px]">
         <Image

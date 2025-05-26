@@ -1,6 +1,7 @@
 {
   "name": "example-app-router-mixed-routing",
   "private": true,
+  "type": "module",
   "scripts": {
     "dev": "next dev --turbo",
     "lint": "eslint src && tsc && prettier src --check",
