@@ -3,7 +3,6 @@ import Image from 'next/image'
 import heavyImage from "../../../public/fhome/banner.gif";
 import lightImage from "../../../public/fhome/herocity.jpg";
 import { useEffect, useState } from 'react';
-import { Calculator } from 'lucide-react';
 type HeroProps = {
   onScrollToDigitalCity: () => void;
 };
